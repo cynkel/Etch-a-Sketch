@@ -12,7 +12,15 @@ function createSquare() {
 }
 
 function changeSquareColor(square) {
-    square.style.backgroundColor = "blue";
+    square.style.backgroundColor = getRandomColor();
+}
+
+//Generates random values between 0 and 255 as individual RGB values and returns it
+function getRandomColor() {
+    let red = Math.floor(Math.random()*255);
+    let green = Math.floor(Math.random()*255);
+    let blue = Math.floor(Math.random()*255);
+    return `rgb(${red}, ${green}, ${blue})`;
 }
 
 function createNewSquares(width, height) {
@@ -26,6 +34,7 @@ function createNewSquares(width, height) {
 }
 
 function changeSquaresPerSide(squarePerSide, elem) {
+    //Gets the new dimensions of the squares when sides are changed
     squareDimensions = (256 / squarePerSide) + "px";
     elem = "."+elem;
     const square = document.querySelectorAll(elem);
@@ -36,12 +45,14 @@ function changeSquaresPerSide(squarePerSide, elem) {
     return squareDimensions;
 }
 
+//Add squares to container node by using a for loop
 function appendToContainer(dimension, squarePerSide) {
     for (let index = 0; index < (squarePerSide*squarePerSide); index++) {
         container.appendChild(createNewSquares(dimension, dimension));
     }
 }
 
+//Creates first grid 
 for (let index = 0; index < 256; index++) {
     container.appendChild(createSquare());
 }
