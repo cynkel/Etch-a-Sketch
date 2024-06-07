@@ -1,0 +1,26 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.square {
+    /*border: 1px solid black;*/
+    box-sizing: border-box;
+    width: 16px;
+    height: 16px;
+}
+
+.container {
+    display: flex;
+    width: 256px;
+    height: 256px;
+    flex-wrap: wrap;
+    border: 1px solid black;
+}
+
+.nosquares {
+    margin: 30px;
+}
